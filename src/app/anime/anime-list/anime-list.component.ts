@@ -44,10 +44,12 @@ export class AnimeListComponent implements OnInit {
 
   calcularRatingPromedio(animes: Array<Anime>):number{
     var sum = 0;
+    var total = 0;
     for (var anime of this.animes){
       sum += anime.Rating;
+      total +=1
     }
-    return sum/this.animes.length;
+    return sum/total;
   }
 
 }
