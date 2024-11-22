@@ -1,7 +1,7 @@
   <br>
   <div class="container contenedor-animes">
   <div class="row">
-    <p>La cantidad total de episodios es 2326 y el rating promedio es 8.03</p>
+    <p>La cantidad total de episodios es {{episodiosTotales}} y el rating promedio es {{ratingPromedio}}</p>
     <div *ngIf="selected">
       <app-anime-detail [animeDetail]="selectedBAnime"></app-anime-detail>
       <hr>
