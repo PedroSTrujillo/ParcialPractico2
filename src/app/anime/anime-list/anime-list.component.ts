@@ -19,6 +19,8 @@ export class AnimeListComponent implements OnInit {
   getAnimes(): void {
     this.animeService.getAnimes().subscribe((animes) => {
       this.animes = animes;
+      this.episodiosTotales = this.calcularEpisodiosTotales(this.animes);
+      this.ratingPromedio = this.calcularRatingPromedio(this.animes);
     });
   }
 
@@ -29,11 +31,10 @@ export class AnimeListComponent implements OnInit {
 
   ngOnInit() {
     this.getAnimes();
-    this.episodiosTotales = this.calcularEpisodiosTotales();
-    this.ratingPromedio = this.calcularRatingPromedio();
+
   }
 
-  calcularEpisodiosTotales():number{
+  calcularEpisodiosTotales(animes: Array<Anime>):number{
     var sum = 0;
     for (var anime of this.animes){
       sum += anime.episode;
@@ -41,7 +42,7 @@ export class AnimeListComponent implements OnInit {
     return sum;
   }
 
-  calcularRatingPromedio():number{
+  calcularRatingPromedio(animes: Array<Anime>):number{
     var sum = 0;
     for (var anime of this.animes){
       sum += anime.Rating;
