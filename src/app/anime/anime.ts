@@ -1,5 +1,5 @@
 export class Anime {
-  id: number;
+  id: string;
   name: string;
   description: string;
   Rating: number;
@@ -9,7 +9,7 @@ export class Anime {
   img: string;
 
   constructor(
-    id: number,
+    id: string,
     name: string,
     description: string,
     Rating: number,
